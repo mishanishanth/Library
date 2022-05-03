@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qdjtzx/imZ6Bs7LKVtpUwcRkvXmPwSdpyY8yrYv0k6khNq4fVoIXUnTXUdR0CsRoJDTWUNCyx6O5q7oix/C8KQ==",
+  "success": true,
+  "projectFilePath": "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nisha\\.nuget\\packages\\bootstrap\\5.0.0\\bootstrap.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

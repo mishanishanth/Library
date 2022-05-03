@@ -1,0 +1,28 @@
+      Roles needed  4
+**********************  
+    a)Administrator
+	b)Librarian
+    c)Patron
+    d)Guest
+	
+	Pages Needed/Views
+*************************
+	
+	a)Home
+	b)Register
+	c)Login        
+		i)Login
+		ii)Checkin/Checkout
+		ii)My Profile
+	d)Library Card
+	e)Catalogue
+	
+
+   Roles to Pages relationship
+*******************************
+Administrator has access to all the views.
+Librarian has access to  Register,Library card,Checkin/Checkout,Catalogue.
+Patron has access to Register,Login,Checkin/Checkout,My Profile,Library card,Catalogue
+Guest has access to Register,Library Card,Catalogue	
+			 
+	

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryConsole\\LibraryConsole.csproj": {}
+    "C:\\Library\\LibraryConsole\\LibraryConsole.csproj": {}
   },
   "projects": {
-    "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
+    "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
+        "projectUniqueName": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
         "projectName": "LbAssgLibrary",
-        "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
+        "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
         "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
-        "outputPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\obj\\",
+        "outputPath": "C:\\Library\\LibraryAssignmentLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryConsole\\LibraryConsole.csproj": {
+    "C:\\Library\\LibraryConsole\\LibraryConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryConsole\\LibraryConsole.csproj",
+        "projectUniqueName": "C:\\Library\\LibraryConsole\\LibraryConsole.csproj",
         "projectName": "LibraryConsole",
-        "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryConsole\\LibraryConsole.csproj",
+        "projectPath": "C:\\Library\\LibraryConsole\\LibraryConsole.csproj",
         "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
-        "outputPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryConsole\\obj\\",
+        "outputPath": "C:\\Library\\LibraryConsole\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,11 +82,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
-                "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
+              "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
+                "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
               },
-              "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj": {
-                "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj"
+              "C:\\Library\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj": {
+                "projectPath": "C:\\Library\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj"
               }
             }
           }
@@ -119,14 +119,14 @@
         }
       }
     },
-    "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj": {
+    "C:\\Library\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj",
+        "projectUniqueName": "C:\\Library\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj",
         "projectName": "LibraryDBConnectLibrary",
-        "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj",
+        "projectPath": "C:\\Library\\LibraryDBConnectLibrary\\LibraryDBConnectLibrary.csproj",
         "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
-        "outputPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryDBConnectLibrary\\obj\\",
+        "outputPath": "C:\\Library\\LibraryDBConnectLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -143,8 +143,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
-                "projectPath": "C:\\Csharp\\Libassignmentfirst\\LibraryAssignmentLibrary\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
+              "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
+                "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
               }
             }
           }
