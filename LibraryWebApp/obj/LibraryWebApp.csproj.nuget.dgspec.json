@@ -4,14 +4,14 @@
     "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj": {
+    "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj",
-        "projectName": "LibraryWebApp",
-        "projectPath": "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj",
+        "projectUniqueName": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
+        "projectName": "LbAssgLibrary",
+        "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj",
         "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
-        "outputPath": "C:\\Library\\LibraryWebApp\\obj\\",
+        "outputPath": "C:\\Library\\LibraryAssignmentLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,7 +39,198 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Library\\LibraryBusinessDB\\LibraryBusinessDB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Library\\LibraryBusinessDB\\LibraryBusinessDB.csproj",
+        "projectName": "LibraryBusinessDB",
+        "projectPath": "C:\\Library\\LibraryBusinessDB\\LibraryBusinessDB.csproj",
+        "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
+        "outputPath": "C:\\Library\\LibraryBusinessDB\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
+                "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Library\\LibraryBusiness\\LibraryBusiness.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Library\\LibraryBusiness\\LibraryBusiness.csproj",
+        "projectName": "LibraryBusiness",
+        "projectPath": "C:\\Library\\LibraryBusiness\\LibraryBusiness.csproj",
+        "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
+        "outputPath": "C:\\Library\\LibraryBusiness\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Library\\LibraryBusinessDB\\LibraryBusinessDB.csproj": {
+                "projectPath": "C:\\Library\\LibraryBusinessDB\\LibraryBusinessDB.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj",
+        "projectName": "LibraryWebApp",
+        "projectPath": "C:\\Library\\LibraryWebApp\\LibraryWebApp.csproj",
+        "packagesPath": "C:\\Users\\nisha\\.nuget\\packages\\",
+        "outputPath": "C:\\Library\\LibraryWebApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nisha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj": {
+                "projectPath": "C:\\Library\\LibraryAssignmentLibrary\\LbAssgLibrary.csproj"
+              },
+              "C:\\Library\\LibraryBusiness\\LibraryBusiness.csproj": {
+                "projectPath": "C:\\Library\\LibraryBusiness\\LibraryBusiness.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
             "bootstrap": {
               "target": "Package",
               "version": "[5.0.0, )"

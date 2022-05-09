@@ -8,6 +8,7 @@ namespace LbAssgLibrary
     public class DTORole
     {
         public string role { get; set; }
+        public int roleid { get; set; }
 
         
         public void AddRole(List<DTORole> roles, string roledefault)

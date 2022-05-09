@@ -2,8 +2,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LbAssgLibrary;
 using LibraryDBConnectLibrary;
 using System.Collections.Generic;
+using LibraryWebApp.Controllers;
+using LibraryWebApp.Models;
 using System;
 using System.IO;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UnitLibraryTest
 {
@@ -140,6 +143,37 @@ namespace UnitLibraryTest
             int returnval;
             returnval = _dbc.deleteroledata("Patron");
             Assert.AreEqual(returnval , 1, 0);
+        }
+        [TestMethod]
+        public void _CatalogController()
+        {
+            var controllercat = new HomeController();
+            var result = controllercat.catalogue("Harry Potter") as ViewResult;
+            List<Catalogue> catalogtst = (List<Catalogue>)result.ViewData.Model;
+            Assert.AreEqual(catalogtst[0].medianame, "Harry Potter");
+        
+        }
+        [TestMethod]
+        public void _loginController()
+        {
+            var controllerlogin = new HomeController();
+            Login usrtest = new Login();
+            UserModel usrmodel = new UserModel();
+            usrtest.username = "mishaadmin";
+            usrtest.password = "Nish4632#";
+            var result = controllerlogin.Login(usrtest);
+            usrmodel = (UserModel)result.ViewData.Model;
+            Assert.AreEqual(usrmodel.role, "Administrator");
+
+        }
+        [TestMethod]
+        public void _roleController()
+        {
+            var controllerRole=new HomeController();
+            List<Role> rolemodel = new List<Role>();
+            var result = controllerRole.Role();
+            rolemodel=(List<Role>) result.ViewData.Model;
+            Assert.IsTrue(rolemodel.Count > 0);
         }
 
     }

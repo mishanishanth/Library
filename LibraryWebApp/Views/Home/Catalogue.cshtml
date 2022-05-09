@@ -1,0 +1,84 @@
+﻿@model IEnumerable<LibraryWebApp.Models.Catalogue>
+
+@{
+    ViewData["Title"] = "Catalogue";
+}
+<nav class="navbar navbar-expand-sm bg-dark top-bar fixed-top">
+    <div class="d-sm-inline-flex">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/Home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/Home/Login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ContactUs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<h1>Catalogue</h1>
+
+
+
+<p>
+    <form action="/Home/Catalogue" method="get">
+    @Html.TextBox("cmedianame")<input type="submit" value="Search"/>
+    </form>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.medianame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediatype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediagenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediaauthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberofcopies)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.medianame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mediatype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mediagenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mediaauthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofcopies)
+            </td>
+         <!--   <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>-->
+        </tr>
+}
+    </tbody>
+</table>

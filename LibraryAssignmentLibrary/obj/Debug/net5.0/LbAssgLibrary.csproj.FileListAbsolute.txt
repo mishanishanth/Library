@@ -25,3 +25,15 @@ C:\Csharp\Libassignmentfirst\LibraryAssignmentLibrary\LibraryAssignmentLibrary\o
 C:\Csharp\Libassignmentfirst\LibraryAssignmentLibrary\LibraryAssignmentLibrary\obj\Debug\net5.0\refint\LbAssgLibrary.dll
 C:\Csharp\Libassignmentfirst\LibraryAssignmentLibrary\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.pdb
 C:\Csharp\Libassignmentfirst\LibraryAssignmentLibrary\LibraryAssignmentLibrary\obj\Debug\net5.0\ref\LbAssgLibrary.dll
+C:\Library\LibraryAssignmentLibrary\bin\Debug\net5.0\LbAssgLibrary.deps.json
+C:\Library\LibraryAssignmentLibrary\bin\Debug\net5.0\LbAssgLibrary.dll
+C:\Library\LibraryAssignmentLibrary\bin\Debug\net5.0\LbAssgLibrary.pdb
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.csproj.AssemblyReference.cache
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.AssemblyInfoInputs.cache
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.AssemblyInfo.cs
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.csproj.CoreCompileInputs.cache
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.dll
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\refint\LbAssgLibrary.dll
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\LbAssgLibrary.pdb
+C:\Library\LibraryAssignmentLibrary\obj\Debug\net5.0\ref\LbAssgLibrary.dll

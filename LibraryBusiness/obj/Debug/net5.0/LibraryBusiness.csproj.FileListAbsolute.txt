@@ -1,0 +1,17 @@
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LibraryBusiness.deps.json
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LibraryBusiness.dll
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LibraryBusiness.pdb
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LbAssgLibrary.dll
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LibraryBusinessDB.dll
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LibraryBusinessDB.pdb
+C:\Library\LibraryBusiness\bin\Debug\net5.0\LbAssgLibrary.pdb
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.csproj.AssemblyReference.cache
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.AssemblyInfoInputs.cache
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.AssemblyInfo.cs
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.csproj.CoreCompileInputs.cache
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.csproj.CopyComplete
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.dll
+C:\Library\LibraryBusiness\obj\Debug\net5.0\refint\LibraryBusiness.dll
+C:\Library\LibraryBusiness\obj\Debug\net5.0\LibraryBusiness.pdb
+C:\Library\LibraryBusiness\obj\Debug\net5.0\ref\LibraryBusiness.dll

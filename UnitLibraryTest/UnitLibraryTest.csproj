@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LibraryAssignmentLibrary\LbAssgLibrary.csproj" />
     <ProjectReference Include="..\LibraryDBConnectLibrary\LibraryDBConnectLibrary.csproj" />
+    <ProjectReference Include="..\LibraryWebApp\LibraryWebApp.csproj" />
   </ItemGroup>
 
 </Project>

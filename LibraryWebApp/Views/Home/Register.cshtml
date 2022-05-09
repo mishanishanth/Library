@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model LibraryWebApp.Models.UserModel
+@{
+    ViewData["title"] = "Register";
+}
+<!--Html.BeginForm("Register","Home",FormMethod.Post)-->
+<nav class="navbar navbar-expand-sm bg-dark top-bar fixed-top">
+    <div class="d-sm-inline-flex">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/home/Catalogue">Catalogue</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://localhost:44315/Home/Login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ContactUs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<form action="/Home/Register" method="post">
+    <div class="form-group">
+    <label for "username">UserName</label>
+    @Html.TextBoxFor(m=>m.username,new{@class="form-control",@placeholder="Enter Username"})
+</div>
+
+    <div class="form-group">
+    <label for "password">Password</label>
+    @Html.TextBoxFor(m=>m.password,new{@class="form-control",@placeholder="Enter Password"})
+</div>
+
+
+
+<div class="form-group">
+    <label for "firstname">FirstName</label>
+    @Html.TextBoxFor(m=>m.firstname,new{@class="form-control",@placeholder="Enter Firstname"})
+</div>
+<div class="form-group">
+    <label for "lasttname">LastName</label>
+    @Html.TextBoxFor(m=>m.lastname,new{@class="form-control",@placeholder="Enter lastname"})
+</div>
+
+<div class="form-group">
+    <label for "email">EmailId</label>
+    @Html.TextBoxFor(m=>m.emailid,new{@class="form-control",@placeholder="Enter EmailId"})
+</div>
+
+
+<div class="form-group">
+    <label for "staddress">Street Address</label>
+    @Html.TextBoxFor(m=>m.streetaddress,new{@class="form-control",@placeholder="Enter StreetAddress"})
+</div>
+<div class="form-group">
+    <label for "city">City</label>
+    @Html.TextBoxFor(m=>m.city,new{@class="form-control",@placeholder="Enter City"})
+</div>
+
+<div class="form-group">
+    <label for "pincode">PinCode</label>
+    @Html.TextBoxFor(m=>m.pincode,new{@class="form-control",@placeholder="Enter Pincode"})
+</div>
+
+<div class="form-group">
+    <label for "phoneno">PhoneNo</label>
+    @Html.TextBoxFor(m=>m.phoneno,new{@class="form-control",@placeholder="Enter PhoneNo"})
+</div>
+
+<!--<div class="form-group">
+    <label for "roleinfo">Roles</label>
+    @Html.TextBoxFor(m=>m.role,new{@Value="Guest"})
+</div>-->
+
+<div>
+    <input type="submit" value="submit"  class="btn btn-primary" />
+</div>
+
+
+
+
+</form>
