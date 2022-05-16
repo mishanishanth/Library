@@ -130,3 +130,12 @@ C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\AdminView.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\Role.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\Catalogue.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\Logout.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\UserView.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\User\EditUser.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\User\UserDetails.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Media\AddMedia.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Mediacheckout\Checkout.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Mediacheckout\Details.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Transaction\Transaction.cshtml.g.cs

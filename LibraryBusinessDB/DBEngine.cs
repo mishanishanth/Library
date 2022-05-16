@@ -96,6 +96,114 @@ namespace LibraryBusinessDB
                 DBclose();
 
         }
+        public List<DTOUser> viewuserdata(string username)
+        {
+            List<DTOUser> userlist = new List<DTOUser>();
+            string sqlstring;
+            if (username == String.Empty)
+                sqlstring = "select username,psswd,firstname,lastname,lstatus,accountstatus,emailid,phoneno,streetaddress,city,pincode,rolename,userid from userlist, rolelist where rolelist.roleid=userlist.roleid";
+            else
+                sqlstring = "select username,psswd,firstname,lastname,lstatus,accountstatus,emailid,phoneno,streetaddress,city,pincode,rolename,userid from userlist, rolelist where rolelist.roleid=userlist.roleid and userlist.username='" + username + "'";
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqldata = sqlcmd.ExecuteReader();
+            while (sqldata.Read())
+            {
+                userlist.Add(new DTOUser
+                {   
+                    username = sqldata[0].ToString(),
+                    password = sqldata[1].ToString(),
+                    firstname = sqldata[2].ToString(),
+                    lastname = sqldata[3].ToString(),
+                    loginlogoutstatus = sqldata[4].ToString(),
+                    accountstatus = sqldata[5].ToString(),
+                    emailid = sqldata[6].ToString(),
+                    phoneno = sqldata[7].ToString(),
+                    streetaddress = sqldata[8].ToString(),
+                    city = sqldata[9].ToString(),
+                    pincode = sqldata[10].ToString(),
+                    role = sqldata[11].ToString(),
+                    userid=Convert.ToInt32(sqldata[12])
+                }
+                );
+
+            }
+            // foreach (var i in userlist)
+            //  Console.WriteLine(i.username);
+            DBclose();
+            return userlist;
+        }
+
+        public DTOUser viewuserdata(int userid)
+        {
+            DTOUser userlist = new DTOUser();
+            string sqlstring;
+            if (userid > 0)
+            {
+                sqlstring = "select username,psswd,firstname,lastname,lstatus,accountstatus,emailid,phoneno,streetaddress,city,pincode,rolename,userid from userlist, rolelist where rolelist.roleid=userlist.roleid and userlist.userid=" + userid;
+                SqlCommand sqlcmd;
+                SqlDataReader sqldata;
+                sqlcmd = new SqlCommand(sqlstring, DBopen());
+                sqldata = sqlcmd.ExecuteReader();
+                while (sqldata.Read())
+                {
+                    userlist=(new DTOUser
+                    {
+                        username = sqldata[0].ToString(),
+                        password = sqldata[1].ToString(),
+                        firstname = sqldata[2].ToString(),
+                        lastname = sqldata[3].ToString(),
+                        loginlogoutstatus = sqldata[4].ToString(),
+                        accountstatus = sqldata[5].ToString(),
+                        emailid = sqldata[6].ToString(),
+                        phoneno = sqldata[7].ToString(),
+                        streetaddress = sqldata[8].ToString(),
+                        city = sqldata[9].ToString(),
+                        pincode = sqldata[10].ToString(),
+                        role = sqldata[11].ToString(),
+                        userid = Convert.ToInt32(sqldata[12])
+                    }
+                    );
+
+                }
+                // foreach (var i in userlist)
+                //  Console.WriteLine(i.username);
+                DBclose();
+            }
+            return userlist;
+        }
+
+        public int EditUser(DTOUser u)
+        {
+            string sqlstring = "bsuserupdate";
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter returnparam;
+            returnparam = new SqlParameter("@returnval", SqlDbType.Int);
+            returnparam.Direction = ParameterDirection.Output;
+            int retval = 0;
+            sqlcmd.Parameters.Add(new SqlParameter("@usrname", u.username));
+            sqlcmd.Parameters.Add(new SqlParameter("@lastname", u.lastname));
+            sqlcmd.Parameters.Add(new SqlParameter("@emailid", u.emailid));
+            sqlcmd.Parameters.Add(new SqlParameter("@streetaddress", u.streetaddress));
+            sqlcmd.Parameters.Add(new SqlParameter("@city", u.city));
+            sqlcmd.Parameters.Add(new SqlParameter("@pincode", u.pincode));
+            sqlcmd.Parameters.Add(new SqlParameter("@phoneno", u.phoneno));
+            sqlcmd.Parameters.Add(new SqlParameter("@userid", u.userid));
+            sqlcmd.Parameters.Add(new SqlParameter("@rolename", u.role));
+            sqlcmd.Parameters.Add(new SqlParameter("@accountstatus", u.accountstatus));
+            sqlcmd.Parameters.Add(returnparam);
+            sqldata = sqlcmd.ExecuteReader();
+            retval = (int)sqlcmd.Parameters["@returnval"].Value;
+            sqlcmd.Parameters.Clear();
+            sqldata.Close();
+
+            DBclose();
+            return retval;
+        }
         public List<DTORole> viewroledata(List<DTORole> roles)
         {
             string sqlstring = "select rolename from rolelist";
@@ -170,6 +278,110 @@ namespace LibraryBusinessDB
 
             DBclose();
             return medialist;
+        }
+
+        public void mediainsert(DTOMedia medialist)
+        {
+            string sqlstring = "mediainsert";
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.Parameters.Add(new SqlParameter("@medianame", medialist.medianame));
+                sqlcmd.Parameters.Add(new SqlParameter("@mediatype", medialist.mediatype));
+                sqlcmd.Parameters.Add(new SqlParameter("@mediagenre", medialist.mediagenre));
+                sqlcmd.Parameters.Add(new SqlParameter("@mediaauthor", medialist.mediaauthor));
+                sqlcmd.Parameters.Add(new SqlParameter("@numberofcopies", medialist.numberofcopies));
+                sqldata = sqlcmd.ExecuteReader();
+                sqlcmd.Parameters.Clear();
+                sqldata.Close();
+                DBclose();
+
+        }
+
+        public DTOMedia viewmediadata(int mediaid)
+        {
+            string sqlstring;
+            DTOMedia media = new DTOMedia();
+            if (mediaid > 0)
+            {
+                sqlstring = "select mediaid,medianame,mediatype,mediagenre,mediaauthor,numberofcopies from medialist where mediaid=" + mediaid;
+                SqlCommand sqlcmd;
+                SqlDataReader sqldata;
+                sqlcmd = new SqlCommand(sqlstring, DBopen());
+                sqldata = sqlcmd.ExecuteReader();
+                while (sqldata.Read())
+                {
+
+                    media.mediaid = Convert.ToInt32(sqldata[0]);
+                    media.medianame = sqldata[1].ToString();
+                    media.mediatype = sqldata[2].ToString();
+                    media.mediagenre = sqldata[3].ToString();
+                    media.mediaauthor = sqldata[4].ToString();
+                    media.numberofcopies = Convert.ToInt32(sqldata[5]);
+                  }
+
+                DBclose();
+            }
+         
+       
+            return media;
+        }
+
+        public void inserttransaction(DTOTran tranlist)
+        {
+            string sqlstring = "traninsert";
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+                 sqlcmd.Parameters.Add(new SqlParameter("@mediaid", tranlist.mediaid));
+                sqlcmd.Parameters.Add(new SqlParameter("@userid", tranlist.userid));
+                sqlcmd.Parameters.Add(new SqlParameter("@mediaqty", tranlist.mediaqty));
+                sqlcmd.Parameters.Add(new SqlParameter("@transactiontype", tranlist.transactiontype));
+                sqlcmd.Parameters.Add(new SqlParameter("@transactionstatus", tranlist.transactionstatus));
+                sqldata = sqlcmd.ExecuteReader();
+                sqlcmd.Parameters.Clear();
+                sqldata.Close();
+
+            DBclose();
+
+
+        }
+
+        public List<DTOTran> viewtransaction(int userid)
+        {
+            List<DTOTran> tranlist=new List<DTOTran>();
+            string sqlstring;
+            if (userid == 0)
+                sqlstring = "select transactionid,transactionlist.mediaid,medialist.medianame,transactionlist.userid, userlist.username,transactionlist.mediaqty,transactiondate,transactiontype,transactionstatus from transactionlist,medialist,userlist where transactionlist.mediaid = medialist.mediaid and transactionlist.userid = userlist.userid";
+            else
+                sqlstring = "select transactionid,transactionlist.mediaid,medialist.medianame,transactionlist.userid, userlist.username,transactionlist.mediaqty,transactiondate,transactiontype,transactionstatus from transactionlist,medialist,userlist where transactionlist.mediaid = medialist.mediaid and transactionlist.userid = userlist.userid and transactionstatus = 'P' and transactionlist.userid = " + userid;
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqldata = sqlcmd.ExecuteReader();
+            while (sqldata.Read())
+            {
+                tranlist.Add(new DTOTran
+                {
+                    transactionid = Convert.ToInt32(sqldata[0]),
+                    mediaid = Convert.ToInt32(sqldata[1]),
+                    medianame = sqldata[2].ToString(),
+                    userid = Convert.ToInt32(sqldata[3]),
+                    username = sqldata[4].ToString(),
+                    mediaqty = Convert.ToInt32(sqldata[5]),
+                    transactiondate = Convert.ToDateTime(sqldata[6]),
+                    transactiontype = sqldata[7].ToString(),
+                    transactionstatus = sqldata[8].ToString(),
+
+                }
+                );
+
+            }
+
+            DBclose();
+            return tranlist;
         }
 
     }

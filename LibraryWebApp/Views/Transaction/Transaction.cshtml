@@ -1,0 +1,80 @@
+﻿@model IEnumerable<LibraryWebApp.Models.transaction>
+
+@{
+   ViewData["title"] ="Transaction";
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.transactionid)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediaqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transactiontype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transactionstatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transactiondate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medianame)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.transactionid)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mediaqty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transactiontype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transactionstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transactiondate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medianame)
+            </td>
+           <!-- <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>-->
+        </tr>
+        
+}
+    </tbody>
+</table>
+<div>
+            <input class="btn btn-primary" type="button" value="back to dashboard" onclick="window.location.href='https://localhost:44315/home/Index';" >
+        </div>
+

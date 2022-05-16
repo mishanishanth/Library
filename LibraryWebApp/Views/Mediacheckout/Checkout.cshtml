@@ -1,0 +1,71 @@
+﻿@model IEnumerable<LibraryWebApp.Models.Mediacheckout>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkout</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+ @using (Html.BeginForm("Checkout","Mediacheckout",FormMethod.Get) )
+ {
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mediaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medianame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediacheck)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberofcopies)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mediaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medianame)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.mediacheck)
+                @Html.HiddenFor(modelItem=>item.mediacheck)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofcopies)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("FCheckout", "Checkout", new { id=item.mediaid })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+     @using (Html.BeginForm("Submit","Mediacheckout") )
+     {
+            <input type="submit" value="Checkout"  class="btn btn-primary" />
+     }
+    </div>
+ }
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿@model LibraryWebApp.Models.Mediacheckout
+
+@{
+    ViewData["Title"] = "Mediacheckout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+
+</head>
+<body>
+
+<div>
+    <h3>Media CheckOut Completed Successfully for the following Media</h3>
+   
+  
+    <table class="table table-bordered ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.mediaid)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.medianame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediatype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediagenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mediaauthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberofcopies)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+     
+{
+    <tr>
+                                 
+           
+            <td>
+                 @Html.DisplayFor(model => model.mediaid)
+            </td>
+            <td>
+                 @Html.DisplayFor(model => model.medianame)
+            </td>
+              
+            <td>
+                @Html.DisplayFor(model => model.mediatype)
+             </td>
+            <td>
+               @Html.DisplayFor(model => model.mediagenre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.mediaauthor)
+             
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.numberofcopies)
+               
+            </td>
+ </table>
+</div>
+<div>
+   <input class="btn btn-primary" type="button" value="back to catalogue" onclick="window.location.href='https://localhost:44315/home/Catalogue';" >
+        </div>
+</body>
+</html>

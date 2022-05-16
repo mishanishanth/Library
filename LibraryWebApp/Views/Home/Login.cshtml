@@ -2,9 +2,12 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model LibraryWebApp.Models.Login
+
+
 @{
     ViewData["title"] = "Login";
 }
+
 
 <nav class="navbar navbar-expand-sm bg-dark top-bar fixed-top">
     <div class="d-sm-inline-flex">
@@ -16,7 +19,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Home/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -26,17 +29,20 @@
 </nav>
 
 
-<!--@Html.BeginForm("Login","home",FormMethod.Post) -->
-<form action="/Home/Login" method="post">
+@using (Html.BeginForm("Login","Login",FormMethod.Post) )
+{
+
+    @Html.ValidationSummary(true,"",new{@class="text-danger"})
     <div class="form-group">
         <label for "name">Username</label>
-    @Html.TextBoxFor(m=>m.username,new{@class="form-control",@placeholder="Enter Username"})
-    @Html.ValidationMessageFor(m=>m.username,"",new{@class="alert-danger"})
+    @Html.TextBoxFor(model=>model.username,new{@class="form-control",@placeholder="Enter Username"})
+    @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"}) 
+   
     </div>
      <div class="form-group">
         <label for "password">Password</label>
-    @Html.TextBoxFor(m=>m.password,new{@class="form-control",@placeholder="Enter Password"})
-    @Html.ValidationMessageFor(m=>m.password,"",new{@class="alert-danger"})
+    @Html.PasswordFor(model=>model.password,new{@class="form-control",@placeholder="Enter Password"})
+    @Html.ValidationMessageFor(model=>model.password,"",new{@class="text-danger"})
     </div>
     <div>
     <input type="submit" value="Login"  class="btn btn-primary" /><span>
@@ -44,7 +50,10 @@
     <input type=button onclick="window.location.href='https://localhost:44315/home/Register';" class="btn btn-primary" value="Register"/>
     </span>
 </div>
-</form>
+   
+}
+
+
 
 
     

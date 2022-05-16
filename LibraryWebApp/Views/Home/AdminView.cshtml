@@ -15,7 +15,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Home/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -25,7 +25,41 @@
 </nav>
 
 <div>
-<p>Welcome to Library System User Logged in @Model.username</p>
-<a href="https://localhost:44315/home/Role" class="btn btn-primary">Role Management</a>
- </div>  
+
+  @if (Model.accountstatus == "Enabled")
+    {
+        @if (Model.role == "Administrator")
+        {
+
+            <p>Welcome to Library System User Logged in @Model.username</p>
+            <a href="https://localhost:44315/home/Role" class="btn btn-primary">Role Management</a><span>
+            <a href="https://localhost:44315/Home/Catalogue" class="btn btn-primary">Catalogue</a></span><span>
+            <a href="https://localhost:44315/Home/UserView" class="btn btn-primary">User Management</a></span>
+            <a href="https://localhost:44315/Transaction/Transaction" class="btn btn-primary">Transaction</a> 
+            <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>
+        }
+        else if (Model.role == "Patron" || Model.role == "Librarian")
+        {
+            <p>Welcome to Library System User Logged in @Model.username</p>
+            <a href="https://localhost:44315/Home/Catalogue" class="btn btn-primary">Catalogue</a>
+            <a href="https://localhost:44315/Transaction/Transaction" class="btn btn-primary">Transaction</a> 
+            <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>
+        }
+        else if(Model.role=="Guest")
+        {
+            
+        }
+    }
+    else if (Model.accountstatus == "Disabled")
+    {
+        <p style="color:red;font-size:50px;">User account disabled, please contact Admin</p>
+    }
+    else if (Model.username == "NA" || Model.username == null)
+    {
+        <p style="color:red;font-size:50px;">Invalid User login</p>
+    }
+ 
+ 
+
+</div>  
 

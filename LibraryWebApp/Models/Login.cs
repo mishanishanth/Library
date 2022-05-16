@@ -4,9 +4,10 @@ namespace LibraryWebApp.Models
 {
     public class Login
     {
-        [Required(ErrorMessage ="Please enter username"),MaxLength(30)]
+        [Required (ErrorMessage ="Name is required")]
         public string username { get; set; }
-        [Required(ErrorMessage ="Please enter password")]
+
+        [Required(ErrorMessage ="password is required")]
         public string password { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<LibraryWebApp.Models.Catalogue>
-
+@using LibraryWebApp.common;
 @{
     ViewData["Title"] = "Catalogue";
 }
@@ -13,7 +13,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Home/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -26,26 +26,28 @@
 <h1>Catalogue</h1>
 
 
-
-<p>
-    <form action="/Home/Catalogue" method="get">
-    @Html.TextBox("cmedianame")<input type="submit" value="Search"/>
-    </form>
-</p>
-
-
+ @using (Html.BeginForm("catalogue","Home",FormMethod.Get) )
+ {
+         @Html.TextBox("cmedianame")<input type="submit" value="Search"/>
+         
 <table class="table">
     <thead>
         <tr>
+           <!-- <th>
+                @Html.DisplayNameFor(model=>model.mediaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.mediacheck)
+            </th>-->
             <th>
                 @Html.DisplayNameFor(model => model.medianame)
             </th>
-            <th>
+           <!-- <th>
                 @Html.DisplayNameFor(model => model.mediatype)
-            </th>
-            <th>
+            </th>-->
+           <!-- <th>
                 @Html.DisplayNameFor(model => model.mediagenre)
-            </th>
+            </th>-->
             <th>
                 @Html.DisplayNameFor(model => model.mediaauthor)
             </th>
@@ -56,29 +58,51 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.medianame)
+
+
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <!--  <td>
+                <input type="checkbox" data-val="true" id="chk@item.mediaid" name="mediacheck" value="true">
+                     <input name="mediacheck" type="hidden" value="false"> 
+                      @Html.CheckBoxFor(modelItem=>item.mediacheck) 
+                              
             </td>
             <td>
+                 @Html.DisplayFor(modelItem => item.mediaid)
+            </td>-->
+            <td>
+                 @Html.DisplayFor(modelItem => item.medianame)
+            </td>
+              
+            <!-- <td>
                 @Html.DisplayFor(modelItem => item.mediatype)
-            </td>
+             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.mediagenre)
-            </td>
+               @Html.DisplayFor(modelItem => item.mediagenre)
+            </td>-->
             <td>
                 @Html.DisplayFor(modelItem => item.mediaauthor)
+             
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.numberofcopies)
+               
             </td>
-         <!--   <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>-->
+ 
+
+         <td>
+                @Html.ActionLink("CheckOut", "Details","MediaCheckout", new { mediaid=item.mediaid }) 
+                  
+          </td>
         </tr>
+       
 }
-    </tbody>
-</table>
+ </tbody>
+</table> 
+
+}
+
+

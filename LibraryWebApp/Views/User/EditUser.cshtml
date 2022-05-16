@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model LibraryWebApp.Models.UserModel
+
+  @using (Html.BeginForm("EditUser","User",FormMethod.Get) )
+    {
+    <div class="form-group">
+     <label for "username">User ID</label>
+    @Html.TextBoxFor(m=>m.userid,new{@class="form-control",@placeholder="UserID",@readonly="readonly"})
+    <label for "username">UserName</label>
+    @Html.TextBoxFor(m=>m.username,new{@class="form-control",@placeholder="Enter Username"})
+     @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
+</div>
+
+    <div class="form-group">
+    <label for "password">Password</label>
+    @Html.PasswordFor(m=>m.password,new{@class="form-control",@placeholder="Enter Password"})
+    @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
+</div>
+
+
+
+<div class="form-group">
+    <label for "firstname">FirstName</label>
+    @Html.TextBoxFor(m=>m.firstname,new{@class="form-control",@placeholder="Enter Firstname",@readonly="readonly"})
+</div>
+<div class="form-group">
+    <label for "lasttname">LastName</label>
+    @Html.TextBoxFor(m=>m.lastname,new{@class="form-control",@placeholder="Enter lastname"})
+</div>
+
+<div class="form-group">
+    <label for "email">EmailId</label>
+    @Html.TextBoxFor(m=>m.emailid,new{@class="form-control",@placeholder="Enter EmailId"})
+    @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
+</div>
+
+
+<div class="form-group">
+    <label for "staddress">Street Address</label>
+    @Html.TextBoxFor(m=>m.streetaddress,new{@class="form-control",@placeholder="Enter StreetAddress"})
+</div>
+<div class="form-group">
+    <label for "city">City</label>
+    @Html.TextBoxFor(m=>m.city,new{@class="form-control",@placeholder="Enter City"})
+</div>
+
+<div class="form-group">
+    <label for "pincode">PinCode</label>
+    @Html.TextBoxFor(m=>m.pincode,new{@class="form-control",@placeholder="Enter Pincode"})
+</div>
+
+<div class="form-group">
+    <label for "phoneno">PhoneNo</label>
+    @Html.TextBoxFor(m=>m.phoneno,new{@class="form-control",@placeholder="Enter PhoneNo"})
+</div>
+
+<div class="form-group">
+    <label for "accountinfo">Account Status</label>
+  <!--  @Html.TextBoxFor(m=>m.accountstatus,new{@class="form-control",@placeholder="Enter Account Status"}) -->
+    @Html.DropDownListFor(m=>m.accountstatus,new SelectList(ViewBag.accountstatus),new {style="width: 1110px;"})
+</div>
+
+<div class="form-group">
+    <label for "roleinfo">Roles</label>
+  <!--  @Html.TextBoxFor(m=>m.role,new{@class="form-control",@placeholder="Enter Role Name"}) -->
+    @Html.DropDownListFor(m=>m.role,new SelectList(ViewBag.rolelist),new {style="width: 1110px;"})
+</div>
+
+<div>
+    <input type="submit" value="submit"  class="btn btn-primary" formmethod="post"/>
+</div>
+}
+
+
+
+
