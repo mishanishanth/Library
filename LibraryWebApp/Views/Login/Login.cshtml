@@ -43,15 +43,30 @@
         <label for "password">Password</label>
     @Html.PasswordFor(model=>model.password,new{@class="form-control",@placeholder="Enter Password"})
     @Html.ValidationMessageFor(model=>model.password,"",new{@class="text-danger"})
+   
     </div>
     <div>
+     <input type="checkbox" onclick="showpass(this)" /> <span> 
+         <label for=" show password">Show Password</label> </span>
+         </div>
+         <div>
     <input type="submit" value="Login"  class="btn btn-primary" /><span>
-    
-    <input type=button onclick="window.location.href='https://localhost:44315/home/Register';" class="btn btn-primary" value="Register"/>
+   <input type=button onclick="window.location.href='https://localhost:44315/home/Register';" class="btn btn-primary" value="Register"/>
     </span>
 </div>
    
 }
+
+
+<script>
+    function showpass(passtoggle)
+    {
+        if (passtoggle.checked)
+         password.type="text"
+        else 
+         password.type="password"
+    }
+</script>
 
 
 

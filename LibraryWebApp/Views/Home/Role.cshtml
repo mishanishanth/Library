@@ -15,7 +15,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Logout">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -50,11 +50,15 @@
                 @Html.DisplayFor(modelItem => item.rolename)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+             <!-- @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) -->
             </td>
         </tr>
 }
     </tbody>
 </table>
+<div>
+            <input class="btn btn-primary" type="button" value="back to dashboard" onclick="window.location.href='https://localhost:44315/home/BackToHome';" >
+        </div>
+

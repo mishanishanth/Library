@@ -26,8 +26,10 @@ namespace LibraryWebApp.Controllers
             BSUsers bsuser = new BSUsers();
             DTOUser user = new DTOUser();
             UserModel model = new UserModel();
+      
             if (ModelState.IsValid)
             {
+                //bsuser.ViewUser will call authenticate function and return user detail
                 user = bsuser.ViewUser(logindata.username, logindata.password);
                 model.username = user.username;
                 model.firstname = user.firstname;
@@ -42,23 +44,23 @@ namespace LibraryWebApp.Controllers
                 model.accountstatus = user.accountstatus;
                 if (user.role == "Administrator" || user.role == "Patron" || user.role == "Librarian" || user.role == "Guest")
                 {
-                    //HttpContext.Session.SetString("user", model.username);
-                    // HttpContext.Session.SetString("role", model.role);
+                                    
                     ViewBag.CurrentUser = model.username;
                     SessionHelper.SetObjectAsJson(HttpContext.Session, "userObject", logindata);
-                    //   logindata.password = null;
                     HttpContext.Session.SetString("User",logindata.username);
                     HttpContext.Session.SetInt32("userid", user.userid);
+                    HttpContext.Session.SetString("userrole", user.role);
                     return RedirectToAction ("AdminView","Home", HttpContext.Session.GetString("User"));
                 }
+                
                 else if (user.username == "NA")
                 {
-                    HttpContext.Session.SetString("user", model.username);
+                   
                     return RedirectToAction("AdminView", "Home");
                 }
                 else if (user.accountstatus == "Disabled")
                 {
-                    HttpContext.Session.SetString("user", model.username);
+                  
                     return RedirectToAction("AdminView", "Home");
                 }
                

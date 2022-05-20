@@ -38,11 +38,7 @@ namespace LibraryBusiness
             return engine.viewmediadata(mediaid);
             
         }
-        public void checkout(string media)
-        {
-            
-
-        }
+        
         public List<DTORole> Viewrole()
         {
             List<DTORole> roles = new List<DTORole>();
@@ -74,6 +70,10 @@ namespace LibraryBusiness
         {
             DTOUser userdata = new DTOUser();
             return engine.viewuserdata(username);
+        }
+        public int checkuser(string username)
+        {
+            return engine.checkuserexists(username);
         }
 
         public void inserttransaction(DTOTran tran)

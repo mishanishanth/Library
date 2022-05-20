@@ -17,12 +17,12 @@ namespace LibraryWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        // private readonly ILogger<HomeController> _logger;
+         private readonly ILogger<HomeController> _logger;
 
-        //  public HomeController(ILogger<HomeController> logger)
-        //  {
-        //      _logger = logger;
-        //  }
+          public HomeController(ILogger<HomeController> logger)
+          {
+             _logger = logger;
+          }
 
  
         public IActionResult Index()
@@ -34,82 +34,24 @@ namespace LibraryWebApp.Controllers
         {
             return View();
         }
-        [HttpGet]
-
-        //*Added now for session 
-   
-   /*     public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Login(Login logindata)
-        {
-            BSUsers bsuser = new BSUsers();
-            DTOUser user = new DTOUser();
-            UserModel model=new UserModel();
-
-            if (ModelState.IsValid)
-            {
-                user = bsuser.ViewUser(logindata.username, logindata.password);
-                model.username = user.username;
-                model.firstname = user.firstname;
-                model.lastname = user.lastname;
-                model.emailid = user.emailid;
-                model.password = user.password;
-                model.phoneno = user.phoneno;
-                model.pincode = user.pincode;
-                model.streetaddress = user.streetaddress;
-                model.city = user.city;
-                model.role = user.role;
-                model.accountstatus = user.accountstatus;
-
-
-                if (user.role == "Administrator" || user.role=="Patron" || user.role=="Librarian" || user.role=="Guest")
-                {
-                    //HttpContext.Session.SetString("user", model.username);
-                    // HttpContext.Session.SetString("role", model.role);
-                    ViewBag.CurrentUser = model.username;
-                    SessionHelper.SetObjectAsJson(HttpContext.Session, "userObject", logindata);
-
-
-                }
-                else if (user.username =="NA")
-                {
-                    HttpContext.Session.SetString("user", model.username);
-                  //  HttpContext.Session.SetString("role", model.role);
-                  
-                }
-                else if(user.accountstatus =="Disabled")
-                {
-                    HttpContext.Session.SetString("user", model.username);
-                }
-               
-                
-            }
-             return View("AdminView", model);
-           // return RedirectToAction("AdminView", model);
-        }
-        public IActionResult Logout()
-        {
-
-            HttpContext.Session.Clear();
-            // HttpContext.Session.SetString("role", null);
-            // return RedirectToAction("Index");
-            return View("Logout");
-        } */
-       [HttpGet]
+         
+      /* [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost] */
         public IActionResult Register(UserModel model)
         {
                 BSUsers bsuser = new BSUsers();
                 DTOUser user = new DTOUser();
-                
-                if (ModelState.IsValid)
+
+            //  if (bsuser.checkuser(model.username) == 0)
+            //  {
+
+            if (ModelState.IsValid)
+            {
+                if (bsuser.checkuser(model.username) == 0)
                 {
                     user.username = model.username;
                     user.firstname = model.firstname;
@@ -123,11 +65,35 @@ namespace LibraryWebApp.Controllers
                     user.loginlogoutstatus = "O";
                     user.accountstatus = "Enabled";
                     user.role = "Patron";
-                    bsuser.Register(user);
 
+
+                    bsuser.Register(user);
+                    int userid = bsuser.checkuser(model.username);
+                    HttpContext.Session.SetString("User", user.username);
+                    HttpContext.Session.SetInt32("userid", userid);
+                    HttpContext.Session.SetString("userrole", user.role);
+                    HttpContext.Session.SetString("userenabled", "Enabled");
+
+                    return RedirectToAction("AdminView", "Home", user.username);
                 }
+                else
+                {
+                    TempData["Message"] = "User already exists, use another name";
+                    return RedirectToAction("MessageDisplay", "Home");
+                }
+
+            }
+            else
                 return View();
-               // return RedirectToAction("Index");
+                
+               
+          //  }
+           /* else
+            {
+                TempData["Message"] = "User already exists, use another name";
+                return RedirectToAction("MessageDisplay","Home");
+            }*/
+         //   return RedirectToAction("Index");
             
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -135,11 +101,7 @@ namespace LibraryWebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-     /*   public IActionResult AdminView(UserModel user)
-        {
-            ViewBag.CurrentUser = User;
-            return View(user);
-        }*/
+     
      [HttpGet]
         public IActionResult AdminView(string usrname)
         {
@@ -227,14 +189,14 @@ namespace LibraryWebApp.Controllers
                 return View(catmedia);
         }
 
-        [HttpPost]
+       /* [HttpPost]
         public void catalogue(IEnumerable<Catalogue> catmedia)
         {
             string mediacheck;
             foreach(var item in catmedia)
                 mediacheck = item.mediacheck.ToString();    
 
-        }
+        }*/
 
         public void checkout(List<Catalogue> model)
         {
@@ -243,6 +205,15 @@ namespace LibraryWebApp.Controllers
                 mediacheck = item.mediacheck;
           
 
+        }
+        public ViewResult MessageDisplay()
+        {
+            ViewBag.Message = TempData["Message"];
+                return View();
+        }
+        public ActionResult BacktoHome()
+        {
+            return  RedirectToAction("AdminView", "Home", HttpContext.Session.GetString("User"));
         }
     }
 }

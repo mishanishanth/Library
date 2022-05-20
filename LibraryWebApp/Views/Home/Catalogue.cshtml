@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<LibraryWebApp.Models.Catalogue>
+@using Microsoft.AspNetCore.Http;
 @using LibraryWebApp.common;
 @{
     ViewData["Title"] = "Catalogue";
@@ -13,7 +14,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Logout">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -94,6 +95,7 @@
  
 
          <td>
+             @if (@Context.Session.GetString("userrole") == "Administrator" || @Context.Session.GetString("userrole") == "Patron" ||  @Context.Session.GetString("userrole") == "Librarian")
                 @Html.ActionLink("CheckOut", "Details","MediaCheckout", new { mediaid=item.mediaid }) 
                   
           </td>
@@ -102,6 +104,10 @@
 }
  </tbody>
 </table> 
+<div>
+            <input class="btn btn-primary" type="button" value="back to dashboard" onclick="window.location.href='https://localhost:44315/home/BackToHome';" >
+        </div>
+
 
 }
 

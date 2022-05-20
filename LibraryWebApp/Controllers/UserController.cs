@@ -44,6 +44,7 @@ namespace LibraryWebApp.Controllers
             model.streetaddress = user.streetaddress;
             model.city = user.city;
             model.role = user.role;
+            model.accountstatus = user.accountstatus;
             return View(model);
         }
        [HttpPost]
@@ -72,7 +73,12 @@ namespace LibraryWebApp.Controllers
             user.accountstatus=model.accountstatus;
             bsuser.EditUser(user);
             ViewBag.message = "User Changes Submitted successfully";
-            return RedirectToAction("UserView","Home");
+            if (HttpContext.Session.GetString("userrole") == "Administrator")
+                //UserView page allows edits  all user information
+                return RedirectToAction("UserView", "Home");
+            else
+                //AdminView page allows edit for individual profile
+                return RedirectToAction("AdminView", "Home");
         }
 
         [HttpGet]

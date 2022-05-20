@@ -25,66 +25,65 @@
     </div>
 </nav>
 
-<!--<form action="/Home/Register" method="post">-->
-    @using (Html.BeginForm("Login","home",FormMethod.Post) )
-    {
+
+ @using (Html.BeginForm("Register","Home",FormMethod.Post))
+ {
+    @Html.ValidationSummary(true,"",new{@class="text-danger"})
     <div class="form-group">
     <label for "username">UserName</label>
-    @Html.TextBoxFor(m=>m.username,new{@class="form-control",@placeholder="Enter Username"})
+    @Html.TextBoxFor(model=>model.username,new{@class="form-control",@placeholder="Enter Username"})
      @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
-</div>
+    </div>
 
     <div class="form-group">
     <label for "password">Password</label>
-    @Html.PasswordFor(m=>m.password,new{@class="form-control",@placeholder="Enter Password"})
-    @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
-</div>
-
-
+    @Html.PasswordFor(model=>model.password,new{@class="form-control",@placeholder="Enter Password"})
+    @Html.ValidationMessageFor(model=>model.password,"",new{@class="text-danger"})
+    </div>
 
 <div class="form-group">
     <label for "firstname">FirstName</label>
-    @Html.TextBoxFor(m=>m.firstname,new{@class="form-control",@placeholder="Enter Firstname"})
+    @Html.TextBoxFor(model=>model.firstname,new{@class="form-control",@placeholder="Enter Firstname"})
+    @Html.ValidationMessageFor(model=>model.firstname,"",new{@class="text-danger"})
 </div>
 <div class="form-group">
     <label for "lasttname">LastName</label>
-    @Html.TextBoxFor(m=>m.lastname,new{@class="form-control",@placeholder="Enter lastname"})
+    @Html.TextBoxFor(model=>model.lastname,new{@class="form-control",@placeholder="Enter lastname"})
+    @Html.ValidationMessageFor(model=>model.lastname,"",new{@class="text-danger"})
 </div>
 
 <div class="form-group">
     <label for "email">EmailId</label>
-    @Html.TextBoxFor(m=>m.emailid,new{@class="form-control",@placeholder="Enter EmailId",@maxlength="10"})
-    @Html.ValidationMessageFor(model=>model.username,"",new{@class="text-danger"})
+    @Html.TextBoxFor(model=>model.emailid,new{@class="form-control",@placeholder="Enter EmailId"})
+    @Html.ValidationMessageFor(model=>model.emailid,"",new{@class="text-danger"})
     
 </div>
 
 
 <div class="form-group">
     <label for "staddress">Street Address</label>
-    @Html.TextBoxFor(m=>m.streetaddress,new{@class="form-control",@placeholder="Enter StreetAddress"})
+    @Html.TextBoxFor(model=>model.streetaddress,new{@class="form-control",@placeholder="Enter StreetAddress"})
 </div>
 <div class="form-group">
     <label for "city">City</label>
-    @Html.TextBoxFor(m=>m.city,new{@class="form-control",@placeholder="Enter City"})
+    @Html.TextBoxFor(model=>model.city,new{@class="form-control",@placeholder="Enter City"})
 </div>
 
 <div class="form-group">
     <label for "pincode">PinCode</label>
-    @Html.TextBoxFor(m=>m.pincode,new{@class="form-control",@placeholder="Enter Pincode"})
+    @Html.TextBoxFor(model=>model.pincode,new{@class="form-control",@placeholder="Enter Pincode"})
 </div>
 
 <div class="form-group">
     <label for "phoneno">PhoneNo</label>
-    @Html.TextBoxFor(m=>m.phoneno,new{@class="form-control",@placeholder="Enter PhoneNo"})
+    @Html.TextBoxFor(model=>model.phoneno,new{@class="form-control",@placeholder="Enter PhoneNo"})
 </div>
 
-<!--<div class="form-group">
-    <label for "roleinfo">Roles</label>
-    @Html.TextBoxFor(m=>m.role,new{@Value="Guest"})
-</div>-->
 
 <div>
     <input type="submit" value="submit"  class="btn btn-primary" />
 </div>
-@Html.ValidationSummary()
+
 }
+
+<script></script>

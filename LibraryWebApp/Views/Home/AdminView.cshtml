@@ -2,6 +2,7 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Microsoft.AspNetCore.Http;
 @model LibraryWebApp.Models.UserModel
 @{
 }
@@ -15,7 +16,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Logout">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -26,40 +27,50 @@
 
 <div>
 
-  @if (Model.accountstatus == "Enabled")
-    {
         @if (Model.role == "Administrator")
         {
 
-            <p>Welcome to Library System User Logged in @Model.username</p>
+            <h4>Welcome to Library System  @Model.firstname</h4>
             <a href="https://localhost:44315/home/Role" class="btn btn-primary">Role Management</a><span>
             <a href="https://localhost:44315/Home/Catalogue" class="btn btn-primary">Catalogue</a></span><span>
             <a href="https://localhost:44315/Home/UserView" class="btn btn-primary">User Management</a></span>
             <a href="https://localhost:44315/Transaction/Transaction" class="btn btn-primary">Transaction</a> 
-            <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>
+            <a href="https://localhost:44315/Media/AddMedia" class="btn btn-primary">Media Management</a> 
+           <!-- <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>-->
         }
-        else if (Model.role == "Patron" || Model.role == "Librarian")
+        @if(Model.role == "Librarian")
         {
-            <p>Welcome to Library System User Logged in @Model.username</p>
+             <h4>Welcome to Library System  @Model.firstname</h4>
             <a href="https://localhost:44315/Home/Catalogue" class="btn btn-primary">Catalogue</a>
             <a href="https://localhost:44315/Transaction/Transaction" class="btn btn-primary">Transaction</a> 
-            <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>
+            <a href="https://localhost:44315/Media/AddMedia" class="btn btn-primary">Media Management</a> 
+           <a href="https://localhost:44315/User/EditUser?userid=@Context.Session.GetInt32("userid")" class="btn btn-primary">Profile</a> 
+           <!-- <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>-->
         }
-        else if(Model.role=="Guest")
+        @if(@Context.Session.GetString("userrole") == "Patron" || Model.role =="Patron")
         {
-            
+            <h3>Welcome to Library System  @Model.firstname</h3>
+            <a href="https://localhost:44315/Home/Catalogue" class="btn btn-primary">Catalogue</a>
+            <a href="https://localhost:44315/Transaction/Transaction" class="btn btn-primary">Transaction</a> 
+            <a href="https://localhost:44315/User/EditUser?userid=@Context.Session.GetInt32("userid")" class="btn btn-primary">Profile</a>
+           <!-- <a href="https://localhost:44315/Login/Logout" class="btn btn-primary">Logout</a>-->
         }
-    }
-    else if (Model.accountstatus == "Disabled")
+      <!--  @if(Model.role=="Guest")
+        {
+              <h3>Welcome to Library System  @Model.firstname</h3>
+          
+        }-->
+
+    @if (Model.accountstatus == "Disabled")
     {
         <p style="color:red;font-size:50px;">User account disabled, please contact Admin</p>
     }
-    else if (Model.username == "NA" || Model.username == null)
+    @if (Model.username == "NA" || Model.username == null)
     {
-        <p style="color:red;font-size:50px;">Invalid User login</p>
+        <h3>Welcome to Library System  @Model.firstname</h3>
+        <p style="color:red;font-size:50px;">Invalid password or user does not exist</p>
+
     }
- 
- 
 
 </div>  
 

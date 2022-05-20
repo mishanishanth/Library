@@ -25,8 +25,14 @@ namespace LibraryWebApp.Controllers
             List<DTOTran> trans = new List<DTOTran>();
             List<transaction> tranmodel=new List<transaction>();
             string username = HttpContext.Session.GetString("User");
-            int userid = Convert.ToInt32(HttpContext.Session.GetInt32("userid"));
-            trans.AddRange(bsuser.viewtransaction(userid));
+            string userrole = HttpContext.Session.GetString("userrole");
+            if (userrole == "Administrator" || userrole == "Librarian")
+                trans.AddRange(bsuser.viewtransaction(0));
+            else
+            {
+                int userid = Convert.ToInt32(HttpContext.Session.GetInt32("userid"));
+                trans.AddRange(bsuser.viewtransaction(userid));
+            }
             foreach (var tran in trans)
             {
                 tranmodel.Add(new transaction                    { 

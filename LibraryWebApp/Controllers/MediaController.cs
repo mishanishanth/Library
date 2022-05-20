@@ -36,6 +36,7 @@ namespace LibraryWebApp.Controllers
             media.numberofcopies=model.numberofcopies;
             media.mediagenre=model.mediagenre;
             bsmedia.AddMedia(media);
+            ModelState.Clear();
             return View();
           
 

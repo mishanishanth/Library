@@ -4,6 +4,8 @@
 @{
 }
 @model LibraryWebApp.Models.UserModel
+@using Microsoft.AspNetCore.Http;
+@*inject IHttpContextAccessor HttpContextAccessor *@
 
   @using (Html.BeginForm("EditUser","User",FormMethod.Get) )
     {
@@ -57,22 +59,40 @@
     <label for "phoneno">PhoneNo</label>
     @Html.TextBoxFor(m=>m.phoneno,new{@class="form-control",@placeholder="Enter PhoneNo"})
 </div>
-
-<div class="form-group">
-    <label for "accountinfo">Account Status</label>
-  <!--  @Html.TextBoxFor(m=>m.accountstatus,new{@class="form-control",@placeholder="Enter Account Status"}) -->
+   
+    @if (@Context.Session.GetString("userrole") == "Administrator")
+    {
+        <div class="form-group">
+            <label for "accountinfo">Account Status</label>
+            <!--  @Html.TextBoxFor(m=>m.accountstatus,new{@class="form-control",@placeholder="Enter Account Status"}) -->
     @Html.DropDownListFor(m=>m.accountstatus,new SelectList(ViewBag.accountstatus),new {style="width: 1110px;"})
-</div>
+        </div>
 
-<div class="form-group">
-    <label for "roleinfo">Roles</label>
-  <!--  @Html.TextBoxFor(m=>m.role,new{@class="form-control",@placeholder="Enter Role Name"}) -->
+        <div class="form-group">
+            <label for "roleinfo">Roles</label>
+            <!--  @Html.TextBoxFor(m=>m.role,new{@class="form-control",@placeholder="Enter Role Name"}) -->
     @Html.DropDownListFor(m=>m.role,new SelectList(ViewBag.rolelist),new {style="width: 1110px;"})
-</div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+        <label for "accountinfo">Account Status</label>
+         @Html.TextBoxFor(m=>m.accountstatus,new{@class="form-control",@placeholder="Account Status",@readonly="readonly"})
+         <label for "Role">Role Name</label>
+         @Html.TextBoxFor(m=>m.role,new{@class="form-control",@placeholder="Role Name",@readonly="readonly"})
+         </div>
+    }
 
 <div>
     <input type="submit" value="submit"  class="btn btn-primary" formmethod="post"/>
+<span>
+    
+            <input class="btn btn-primary" type="button" value="back to dashboard" onclick="window.location.href='https://localhost:44315/home/BackToHome';" >
+        
+</span>
 </div>
+
 }
 
 

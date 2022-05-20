@@ -68,6 +68,29 @@ namespace LibraryBusinessDB
 
         }
 
+        public int checkuserexists(string usrname)
+        {
+            int usercheck = 0;
+            string sqlstring = "select userid from userlist where userlist.username='" + usrname + "'";
+            SqlCommand sqlcmd;
+            SqlDataReader sqldata;
+            sqlcmd = new SqlCommand(sqlstring, DBopen());
+            sqldata = sqlcmd.ExecuteReader();
+            sqldata.Read();
+            if (sqldata.HasRows)
+            {
+                usercheck = Convert.ToInt32(sqldata[0]);
+
+            }
+            else
+                usercheck = 0;
+
+            // }
+            // catch (Exception) { Console.WriteLine("Authentication Failed"); }
+            DBclose();
+            return usercheck;
+
+        }
         public void insertuserdata(DTOUser u)
         {
             string sqlstring = "userinsert";
@@ -206,7 +229,7 @@ namespace LibraryBusinessDB
         }
         public List<DTORole> viewroledata(List<DTORole> roles)
         {
-            string sqlstring = "select rolename from rolelist";
+            string sqlstring = "select roleid, rolename from rolelist";
             SqlCommand sqlcmd;
             SqlDataReader sqldata;
             sqlcmd = new SqlCommand(sqlstring, DBopen());
@@ -215,10 +238,13 @@ namespace LibraryBusinessDB
                 using (sqldata = sqlcmd.ExecuteReader())
                 {
                     string roleinfo;
+                    int rlid;
                     while (sqldata.Read())
                     {
-                        roleinfo = sqldata[0].ToString();
-                        roles.Add(new DTORole { role = roleinfo });
+                        rlid = Convert.ToInt32(sqldata[0]);
+                        roleinfo = sqldata[1].ToString();
+                       
+                        roles.Add(new DTORole { roleid = rlid,role = roleinfo });
                     }
                     DBclose();
                 }

@@ -139,3 +139,4 @@ C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Mediacheckout\Checkout.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Mediacheckout\Details.cshtml.g.cs
 C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Transaction\Transaction.cshtml.g.cs
+C:\Library\LibraryWebApp\obj\Debug\net5.0\Razor\Views\Home\MessageDisplay.cshtml.g.cs

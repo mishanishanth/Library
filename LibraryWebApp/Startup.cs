@@ -25,6 +25,7 @@ namespace LibraryWebApp
         {
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddHttpContextAccessor(); // Added 17th May by Misha
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

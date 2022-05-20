@@ -14,7 +14,7 @@
                 <a class="nav-link" href="https://localhost:44315/Home/Catalogue">Catalogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://localhost:44315/Login/Login">Login</a>
+                <a class="nav-link" href="https://localhost:44315/Login/Logout">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ContactUs</a>
@@ -24,10 +24,10 @@
 </nav>
 <div >
     <table class="table table-striped table-sm" >
-        <tr>
+      <!--  <tr>
             <th>User Id </th>
             <td>@Model.userid</td>
-            </tr>
+            </tr>-->
             <tr>
             <th>User Name </th>
             <td>@Model.username</td>
@@ -51,7 +51,7 @@
         </tr>
          <tr>
             <th>Phone Number </th>
-            <td>@Model.lastname</td>
+            <td>@Model.phoneno</td>
         </tr>
          <tr>
             <th>PinCode </th>
@@ -71,4 +71,9 @@
         </tr>
 
     </table>
+    </div>
+    <div>
+
+        <input class="btn btn-primary" type="button" value="back to dashboard" onclick="window.location.href='https://localhost:44315/home/BackToHome';" >
+        
     </div>
